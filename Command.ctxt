@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Command
+comment0.text=\r\n\ LA\ CLASSE\ COMMANDE,\ Traitement\ des\ commandes\ textuelles\r\n\ \r\n\ @author\ AVESTA\ MOLAEI\r\n\ @version\ 2019.21.30\r\n
+comment1.params=pCommandWord\ pSecondWord
+comment1.target=Command(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructeur\ naturel\ de\ la\ classe\r\n\ @param\ pCommandWord\ mot\ de\ commande\ aka\ premier\ mot\r\n\ @param\ pSecondWord\ mot\ de\ description\ aka\ deuxieme\ mot\r\n
+comment2.params=
+comment2.target=java.lang.String\ getCommandWord()
+comment2.text=\r\n\ GETTERS\r\n
+comment3.params=
+comment3.target=java.lang.String\ getSecondWord()
+comment4.params=
+comment4.target=boolean\ hasSecondWord()
+comment4.text=\r\n\ v\u00E9rifie\ si\ la\ string\ a\ bien\ un\ second\ terme\r\n
+comment5.params=
+comment5.target=boolean\ isUnknown()
+comment5.text=\r\n\ v\u00E9rifie\ si\ le\ terme\ de\ commande\ n'est\ pas\ nulle\r\n
+numComments=6

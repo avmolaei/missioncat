@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Room
+comment1.params=pDescription
+comment1.target=Room(java.lang.String)
+comment1.text=\r\nConstructeur\ pour\ la\ string\ d\u00E9crivant\ la\ pi\u00E8ce\r\n@param\ pDescription\ string\ qui\ d\u00E9crit\ la\ pi\u00E8ce\r\n
+comment2.params=
+comment2.target=java.lang.String\ getDescription()
+comment2.text=\r\ngetter,\ acceseur\ de\ la\ description\ \r\n
+comment3.params=pNorthExit\ pEastExit\ pSouthExit\ pWestExit\ pUpExit
+comment3.target=void\ setExits(Room,\ Room,\ Room,\ Room,\ Room)
+comment3.text=\r\nsetter,\ modificateur\ pour\ les\ sorties\ \r\n
+comment4.params=pDirection\ pVoisin
+comment4.target=void\ setExit(java.lang.String,\ Room)
+comment5.params=pDirection
+comment5.target=Room\ getExit(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getExitString()
+numComments=7
