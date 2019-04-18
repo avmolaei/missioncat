@@ -1,0 +1,34 @@
+help
+take Cigarettes
+go north
+look
+take LockPicking Tools
+heal
+eat
+go west
+look
+go up
+drop LockPickingTools
+inventory
+look
+go east
+look
+go east
+look
+go east
+take KeyCard1
+look
+go up
+look
+go east
+look
+go south
+look
+go up
+look
+go east
+look
+go up
+look
+quit
+    
