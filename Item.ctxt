@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Item
+comment0.text=\r\nLA\ CLASSE\ ITEM,\ Gestion\ des\ Items\r\n\r\n\ @author\ Avesta\ MOLAEI\r\n\ @version\ 14.02.2019\r\n
+comment1.params=pItemName\ pItemWeight
+comment1.target=Item(java.lang.String,\ int)
+comment1.text=\r\n\ constructeur\ pour\ l'item\r\n\ @param\ pItemName\ nom\ de\ l\ item\r\n\ @param\ pItemWeight\ poids\ de\ l\ item\r\n\ @param\ pDescription\ description\ de\ l\ item\r\n
+comment2.params=
+comment2.target=java.lang.String\ getItemName()
+comment2.text=\r\n\ Getter\ du\ nom\r\n
+comment3.params=
+comment3.target=int\ getItemWeight()
+comment3.text=\r\n\ Getter\ du\ poids\r\n
+comment4.params=
+comment4.target=java.lang.String\ getItemDescription()
+comment4.text=\r\n\ Getter\ de\ la\ description\r\n
+numComments=5
