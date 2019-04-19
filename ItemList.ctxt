@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=ItemList
+comment0.text=\r\n\ Permet\ de\ g\u00E9rer\ la\ liste\ d'Item\r\n\ \r\n\ @author\ Sergio\ Cruces\ Vasquez\r\n\ @version\ 2016\r\n
+comment1.params=
+comment1.target=ItemList()
+comment2.params=
+comment2.target=boolean\ isEmpty()
+comment2.text=\r\n\ proc\u00E9dure\ pour\ v\u00E9rifier\ si\ blbalblablabalbalbal\r\n
+comment3.params=
+comment3.target=int\ totalWeight()
+comment4.params=pItem
+comment4.target=void\ addItem(Item)
+comment4.text=\r\n\ m\u00E9thode\ pour\ ajouter\ un\ item\r\n
+comment5.params=pItem
+comment5.target=void\ removeItem(Item)
+comment5.text=\r\n\ m\u00E9thode\ pour\ supprimer\ un\ item\r\n
+comment6.params=pItemname
+comment6.target=void\ removeItem(java.lang.String)
+comment7.params=pItem
+comment7.target=Item\ getItem(java.lang.String)
+comment7.text=\r\n\ fonction\ pour\ retourner\ un\ item\r\n
+comment8.params=
+comment8.target=java.lang.String\ getItemString()
+comment8.text=\r\n\ Retourne\ une\ string\ des\ Items\r\n
+comment9.params=
+comment9.target=java.lang.String\ getStringDesc()
+numComments=10
