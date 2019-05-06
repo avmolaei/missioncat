@@ -1,6 +1,5 @@
- 
-
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -20,8 +19,8 @@ import java.util.Scanner;
  */
 public class Parser 
 {
-    private CommandWords aValidCommands;  // (voir la classe CommandWords)
-    private Scanner      aReader;         // permettra de lire les commandes au clavier
+    private CommandWords aValidCommands;  
+    // Attributs
 
     /**
      * Constructeur par defaut qui cree les 2 objets prevus pour les attributs
@@ -29,41 +28,35 @@ public class Parser
     public Parser() 
     {
         this.aValidCommands = new CommandWords();
-        this.aReader        = new Scanner( System.in );
         // System.in designe le clavier, comme System.out designe l'ecran
-    } // Parser()
+    }//Parser()
 
     /**
      * @return The next command from the user.
      */
-    public Command getCommand() 
-    {
-        String vInputLine;    // contiendra toute la ligne tapee
+    public Command getCommand(final String pInputLine){
         String vWord1 = null;
         String vWord2 = null;
 
-        System.out.print( "> " );  // affiche le prompt (invite de commande)
+        StringTokenizer tokenizer = new StringTokenizer(pInputLine);
 
-        vInputLine = this.aReader.nextLine(); // lit la ligne tapee au clavier
+        if(tokenizer.hasMoreTokens()) vWord1 = tokenizer.nextToken();
+            else vWord1 = null;
 
-        // cherche jusqu'a 2 mots dans la ligne tapee
-        Scanner vTokenizer = new Scanner( vInputLine );
-        if ( vTokenizer.hasNext() ) {
-            vWord1 = vTokenizer.next();      // recupere le premier mot
-            if ( vTokenizer.hasNext() ) {
-                vWord2 = vTokenizer.next();  // recupere le deuxieme mot
-                // note : on ignore tout le reste de la ligne tapee !
-            } // if
-        } // if
+        if(tokenizer.hasMoreTokens()) vWord2 = tokenizer.nextToken();
+            else vWord2 = null;
 
-        // Veifie si le premier mot est une commande connue. Si oui, cree une Command avec.
-        // Sinon, cree une commande vide avec "null" (pour dire 'commande inconnue').
-        if ( this.aValidCommands.isCommand( vWord1 ) ) {
-            return new Command( vWord1, vWord2 );
-        }
-        else {
-            return new Command( null, null ); 
-        }
-    } // getCommand()
+        if(this.aValidCommands.isCommand(vWord1)) return new Command(vWord1, vWord2);
+            else return new Command(null, vWord2);
+
+    }//getCommand()
+
+    /**
+     * @return une string de toutes les commandes valides
+     */
+    public String showCommands(){
+        return aValidCommands.getCommandList();
+    }//showCommands()
+
 } // Parser
 

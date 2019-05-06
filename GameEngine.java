@@ -106,7 +106,7 @@ public class GameEngine
         Item vMedK = new Item("Band-aids",5);
         Item vKey2 = new Item("Key Card", 1);
         Item vKeyS = new Item("Stalin's KeyCard", 1);
-        Item WP    = new Item("A white powder... Could it be?", 1);
+        Item vWP    = new Item("A white powder... Could it be?", 1);
         //Créé les items
 
         vEntree.getItemList().addItem(vCiga);
@@ -117,7 +117,7 @@ public class GameEngine
         vLabo1.getItemList().addItem(vMedK);
         vHangar2.getItemList().addItem(vKey2);
         vBureauStaline.getItemList().addItem(vKeyS);
-        vBureauGardes.getItemList().addItem(WP);
+        vBureauGardes.getItemList().addItem(vWP);
         //Placer les items
 
         
@@ -228,7 +228,7 @@ public class GameEngine
         if(pCommand.hasSecondWord()){
             Item vItem = aPlayer.getInventory().getItem(pCommand.getSecondWord());
             if(vItem!=null){
-                if(vItem.getItemName().equals("WP")){
+                if(vItem.getItemName().equals("vWP")){
                     aPlayer.setPoidsMax(200);
                     aPlayer.getInventory().removeItem(vItem);
                     aGui.println("You ate the white powder. You feel a lot stronger");
@@ -299,11 +299,6 @@ public class GameEngine
     /**
      * Procédure permettant de prendre un item
      * @param pCommand La commande entrée
-     */
-
-    /**
-     * Procédure permettant de lacher un item
-     * @param pCommand la commande entrée
      */
     public void take(Command pCommand){
         if(pCommand.hasSecondWord()){
