@@ -55,12 +55,12 @@ public class Room
      * Obtenir les sorties dispo sous forme d'une seule string concaténée
      */
     public String getExitString(){
-        String vStr = new String("Exits: ");
+        String vStr = new String("\n------------------------------------\n Exits: ");
         Set<String> vKeys = aExits.keySet();    
         for(String aExit : vKeys){
             vStr += " \n"+aExit;
         }
-        vStr +="\n";
+        vStr +="\n------------------------------------\n";
         return vStr;
     }//getExitString()
 
@@ -106,9 +106,10 @@ public class Room
             vInter.append("\nThere are no items here...");
         }
         else{
-            vInter.append("\nItems: ");
+            vInter.append("\n------------------------------------\nItems: ");
             vInter.append(aItemList.getStringDesc());
         }
+        vInter.append("\n------------------------------------\n");
         return vInter.toString();
         
     }//getLongDescription()

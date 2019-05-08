@@ -17,12 +17,10 @@ public class Item{
      * constructeur pour l'item
      * @param pItemName nom de l item
      * @param pItemWeight poids de l item
-     * @param pDescription description de l item
      */
     public Item(final String pItemName, final int pItemWeight){
         this.aItemName = pItemName;
         this.aItemWeight = pItemWeight;
-        
     }//Item(..)
 
     /**

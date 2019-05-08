@@ -51,5 +51,11 @@ public class Game{
             JOptionPane.showMessageDialog(null, "Error while playing the audio file\n Please make sure it is named \"music\", is a .WAV file, and is in the same directory than the Game.java class. Also, check line 35 of Game.java if needed.");
         }
     }
+    
+
+        public static void main(String[] args) {
+        new Game();
+    }
+
 
 }

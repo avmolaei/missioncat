@@ -19,6 +19,8 @@ public class GameEngine
     private Room aBackRoom;
     private Stack<Room> aBackRooms;
     private Player aPlayer;
+    private int aLimite;
+    private int aLimiteMax;
     //Attributs
 
 
@@ -27,6 +29,8 @@ public class GameEngine
      * Constructeur de la classe
      */
     public GameEngine(){
+        this.aLimite = 0;
+        this.aLimiteMax = 69;
         aParser = new Parser();
         createRooms();
         this.aBackRooms= new Stack<Room>();
@@ -98,15 +102,15 @@ public class GameEngine
         //exo 7.18.5
 
         Item vCiga = new Item("Cigarettes", 5);
-        Item vAmm1 = new Item(".45mm ammo (x10)", 10);
-        Item vTool = new Item("LockPicking tools", 10);
-        Item vAmm2 = new Item("5.56mm ammo (x200)", 20);
+        Item vAmm1 = new Item(".45mm_ammo ", 10);
+        Item vTool = new Item("LockPicking_tools", 10);
+        Item vAmm2 = new Item("5.56mm_ammo (x200)", 20);
         Item vM249 = new Item("M249", 200);
-        Item vKey1 = new Item("Key Card", 1);
-        Item vMedK = new Item("Band-aids",5);
-        Item vKey2 = new Item("Key Card", 1);
-        Item vKeyS = new Item("Stalin's KeyCard", 1);
-        Item vWP    = new Item("A white powder... Could it be?", 1);
+        Item vKey1 = new Item("Key_Card", 1);
+        Item vMedK = new Item("Band_aids",5);
+        Item vKey2 = new Item("Key_Card", 1);
+        Item vKeyS = new Item("Stalin_KeyCard", 1);
+        Item vWP    = new Item("A_white_powder", 1);
         //Créé les items
 
         vEntree.getItemList().addItem(vCiga);
@@ -169,32 +173,79 @@ public class GameEngine
         }
 
         String vCommandWord = vCommand.getCommandWord();
-        
-        if(vCommandWord.equals("help"))         
+
+        switch(vCommandWord){
+            case "help":
             printHelp();
-        else if(vCommandWord.equals("go"))      
+            aLimite++;
+            aGui.println("you have " + aLimite + " remaining commands... \n" );
+            break;
+
+            case "go":
             goRoom(vCommand);
-        else if(vCommandWord.equals("look"))    
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "look":
             look();
-        else if(vCommandWord.equals("test"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "test":
             test(vCommand);
-        else if(vCommandWord.equals("back"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "back":
             back();
-        else if(vCommandWord.equals("heal"))    
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "heal":
             aGui.println("you used a medkit you had");
-        else if(vCommandWord.equals("inventory"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "inventory":
             this.inventory();
-        else if(vCommandWord.equals("take"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "take":
             this.take(vCommand);
-        else if(vCommandWord.equals("drop"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "drop":
             this.drop(vCommand);
-        else if(vCommandWord.equals("eat"))
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break;
+
+            case "eat":
             eat(vCommand);
-        else if(vCommandWord.equals("quit")) {
+            aLimite++;
+            aGui.println("you have " + (aLimiteMax - aLimite) + " remaining commands... \n" );
+            break; 
+
+            case "quit":
             if(vCommand.hasSecondWord())        
                 aGui.println("Quit what?\n");
             else                                 
                 endGame();
+            break;
+        }
+        
+        if(aLimite== aLimiteMax){
+            aGui.println("You ran out of time agent! The russian missles were lauched and humanity is doomed. Why were you so long?");
+            endGame();
         }
     }//interpretCommand(.)
 
@@ -302,22 +353,22 @@ public class GameEngine
      */
     public void take(Command pCommand){
         if(pCommand.hasSecondWord()){
-            Item vItem = aPlayer.getInventory().getItem(pCommand.getSecondWord());
+                Item vItem = aPlayer.getCurrentRoom().getItemList().getItem(pCommand.getSecondWord());
             if(vItem != null){
                 if(aPlayer.check(vItem)){
                     aPlayer.take(vItem);
-                    aGui.println("You picked up: " + vItem.getItemName());
+                    aGui.println("You picked " + vItem.getItemName());
+                }
+                else{
+                    aGui.println("You don't have enough carrying room.");
+                }
             }
             else{
-                aGui.println("You don't have enough room to carry this item");
+                aGui.println(""+pCommand.getSecondWord()+" is not a valid name");
             }
         }
         else{
-                aGui.println("" + pCommand.getSecondWord() + "is not an item");
-            }
-        }
-        else{
-            aGui.println("What do you want to take?\n");
+            aGui.println("What do you want to take?");
         }
     }
     
@@ -327,7 +378,7 @@ public class GameEngine
      */
     public void drop(Command pCommand){
           if (pCommand.hasSecondWord()) {
-            Item vItem = aPlayer.getInventory().getItem(pCommand.getSecondWord());
+            Item vItem = aPlayer.getInventory().getItem("Ciga");
             if (vItem != null) {
                 aPlayer.drop(vItem);
                 aGui.println("You dropped " + vItem.getItemName());
@@ -371,9 +422,11 @@ public class GameEngine
         aGui.println("an incredibly boring adventure game made by Avesta, based on Zuul");     
         aGui.println("Your goal: abort the missile launch!!!");   
         aGui.println("Type 'help' if you need help.");
-        aGui.println("GL HF!!\n\n");
+        aGui.println("----------------------------------------------------");
+        aGui.println("\n");
         this.aCurrentRoom.getLongDescription();
         aGui.showImage(this.aCurrentRoom.getImageName());
+        look();
     }//printWelcome()
 
     /**

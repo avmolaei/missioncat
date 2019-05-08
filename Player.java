@@ -122,7 +122,7 @@ public class Player{
      */
     public void drop(Item pItem){
         aItemList.removeItem(pItem);
-        getCurrentRoom().getItemList().removeItem(pItem);
+        getCurrentRoom().getItemList().addItem(pItem);
     }
 
     /**
@@ -130,7 +130,7 @@ public class Player{
      */
     public void take(Item pItem){
         aItemList.addItem(pItem);
-        getCurrentRoom().getItemList().addItem(pItem);
+        getCurrentRoom().getItemList().removeItem(pItem);
 
     }
 

@@ -1,8 +1,6 @@
 
-import java.util.HashMap;
-import java.util.Set;
-import java.util.Iterator;
 import java.util.*;
+
 /**
  * Permet de gérer la liste d'Item
  * 
@@ -42,7 +40,7 @@ public class ItemList
     }
     
     /**
-     * méthode pour supprimer un item
+     * procédure pour supprimer un item
      */
     public void removeItem(final Item pItem)
     {
@@ -86,7 +84,7 @@ public class ItemList
     public String getStringDesc(){
         StringBuilder vRandom = new StringBuilder();
         for(Item vItemrandom: aItem.values()){
-            vRandom.append("\n-");
+            vRandom.append("\n");
             vRandom.append(vItemrandom.getItemName());
         }
         return vRandom.toString();
